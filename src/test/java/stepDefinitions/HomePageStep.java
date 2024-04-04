@@ -36,8 +36,8 @@ public class HomePageStep {
     public void the_user_goes_to_the_cart_and_checks_it() throws InterruptedException {
         homePage.clearTheCart();
     }
-    @Given("Randomly select any of the Jean\\/Kadın\\/Erkek categories.")
-    public void randomly_select_any_of_the_jean_kadın_erkek_categories() {
+    @Given("Randomly select any of the Jean Kadin Erkek categories.")
+    public void randomly_select_any_of_the_jean_kadin_erkek_categories() {
         homePage.clickRandom();
     }
 }

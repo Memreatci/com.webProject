@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
         features = "C:\\Users\\pc\\IdeaProjects\\com.LeeTask\\src\\test\\resources",
         glue = "stepDefinitions",
         tags="@us1",
-        dryRun = false
+        dryRun = true
 
 
 

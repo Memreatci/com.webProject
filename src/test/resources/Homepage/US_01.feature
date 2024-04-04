@@ -6,4 +6,4 @@ Feature: 1- Lee.com.tr Sayfasına git. ( Site açıldığında çıkan bildiriml
     * User goes to Lee.com.tr page.Pay attention to notifications and pop ups.
     * The user logs in to the existing membership with valid "mail" and "password" information.
     * The user goes to the cart and checks it.
-    * Randomly select any of the Jean/Kadın/Erkek categories.
+    * Randomly select any of the Jean Kadin Erkek categories.
