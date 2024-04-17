@@ -1,60 +1,24 @@
 package pages;
 
-import com.fasterxml.jackson.databind.deser.impl.JavaUtilCollectionsDeserializers;
-import com.github.javafaker.Faker;
-import io.cucumber.java.Scenario;
-import io.cucumber.java.en.Given;
 import org.apache.commons.io.FileUtils;
-import org.bouncycastle.jcajce.provider.asymmetric.X509;
 import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import utilities.Driver;
 
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.time.Duration;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class HomePage {
-
-    private final Actions actions;
-    private final WebDriverWait wait;
-    private final Random random;
-    private final JavascriptExecutor js;
-    private final Faker faker;
-
-    public HomePage() {
-        PageFactory.initElements(Driver.getDriver(), this);
-        actions = new Actions(Driver.getDriver());
-        wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
-        random = new Random();
-        js = (JavascriptExecutor) Driver.getDriver();
-        faker = new Faker();
-    }
+public class HomePage extends BasePage {
 
     @FindBy(xpath = "//*[@id='onetrust-reject-all-handler']")
     public WebElement popupReject;
     @FindBy(xpath = "//*[@class='nav-button  cl-account-button']")
     private WebElement accountIcon;
-    @FindBy(xpath = "//*[@id='Email']")
-    private WebElement mailTextBox;
-    @FindBy(xpath = "//*[@id='Password']")
-    private WebElement passwordTextBox;
-    @FindBy(xpath = "//*[@class='login-button']")
-    private WebElement girisYapButton;
-    @FindBy(xpath = "//*[@class='cart-qty']")
-    private WebElement cartIcon;
-    @FindBy(xpath = "//*[@class='cl-product-card-button deleteshoppingcartitem']")
-    private WebElement delIcon;
-    @FindBy(xpath = "//*[@onclick='acceptRemove()']")
-    private WebElement silButton;
     @FindBy(xpath = "//*[@class='nav-menu']/li")
     private List<WebElement> collections;
     @FindBy(id = "products-orderby")
@@ -119,10 +83,9 @@ public class HomePage {
     private WebElement kapatButton;
     @FindBy(id = "_hjSafeContext_96454205")
     private WebElement iframeElement;
-    @FindBy(xpath = "//*[@class='cl-input-plus-button']")
-    private WebElement cartIncreaseIcon;
     @FindBy(xpath = "//*[@class='log-out']")
     private WebElement cıkısYapLink;
+
 
     public WebElement getCıkısYapLink() {
         return cıkısYapLink;
@@ -157,35 +120,6 @@ public class HomePage {
     }
 
 
-    public void login(String mail, String password) {
-        accountIcon.isDisplayed();
-        accountIcon.click();
-        wait.until(ExpectedConditions.elementToBeClickable(mailTextBox));
-        actions
-                .click(mailTextBox)
-                .sendKeys(mail)
-                .click(passwordTextBox)
-                .sendKeys(password)
-                .click(girisYapButton)
-                .perform();
-
-    }
-
-    public void clearTheCart() throws InterruptedException {
-        cartIcon.click();
-
-        while (true) {
-            try {
-                delIcon.click();
-                silButton.click();
-                Thread.sleep(1000);
-            } catch (org.openqa.selenium.NoSuchElementException e) {
-                System.out.println("Already cart is empty.");
-                break;
-            }
-        }
-    }
-
     public void clickRandom() {
 
         List<WebElement> threeChoose = new ArrayList<>();
@@ -206,7 +140,6 @@ public class HomePage {
         Thread.sleep(1500);
         Select select = new Select(sortingDropBox);
         select.selectByIndex(0);
-
     }
 
     public void selectRandomlySizeOptions() throws InterruptedException {
@@ -217,7 +150,6 @@ public class HomePage {
             Select select = new Select(sizeOptions);
             List<WebElement> options = select.getOptions();
             Thread.sleep(1000);
-
 
             int index = 0;
             for (int i = 0; i < options.size(); i++) {
@@ -304,19 +236,7 @@ public class HomePage {
             System.out.println("frameText = " + frameText);
             getKapatButton().click();
         } catch (Exception e) {
-
         }
-
-
-    }
-
-    public void goBackCartAndIncrease(int amount) {
-        wait.until(ExpectedConditions.elementToBeClickable(cartIcon));
-        cartIcon.click();
-        for (int i = 0; i < amount; i++) {
-            cartIncreaseIcon.click();
-        }
-
     }
 
     public static String getScreenshot(String name) throws IOException {
@@ -328,6 +248,4 @@ public class HomePage {
         FileUtils.copyFile(source, finalDestination);
         return target;
     }
-
-
 }

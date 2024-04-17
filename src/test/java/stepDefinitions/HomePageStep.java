@@ -8,6 +8,7 @@ import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pages.BasePage;
 import pages.HomePage;
 import utilities.ConfigReader;
 import utilities.Driver;
@@ -18,36 +19,15 @@ import java.time.Duration;
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
-public class HomePageStep {
+public class HomePageStep extends BasePage {
 
     HomePage homePage;
     private WebDriverWait wait;
-    public HomePageStep() {
-        homePage = new HomePage();
-        wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
-    }
 
     @Given("The user goes to the {string}. Pay attention to notifications and pop ups.")
     public void user_goes_to_lee_com_tr_page_pay_attention_to_notifications_and_pop_ups(String url) throws InterruptedException {
         Driver.getDriver().get(ConfigReader.getProperty(url));
         homePage.popupReject.click();
-    }
-
-    @Given("The user logs in to the existing membership with valid {string} and {string} information.")
-    public void the_user_logs_in_to_the_existing_membership_with_valid_mail_and_password_information(String mail, String password) throws InterruptedException {
-
-        homePage.login(ConfigReader.getProperty(mail), ConfigReader.getProperty(password));
-        try {
-            wait.until(ExpectedConditions.elementToBeClickable(homePage.getAccountIcon()));
-            System.out.println("Entry Successful");
-        } catch (TimeoutException e) {
-            throw new AssertionError("Warning ! Failed to log in. ");
-        }
-    }
-
-    @Given("The user goes to the cart and checks it.")
-    public void the_user_goes_to_the_cart_and_checks_it() throws InterruptedException {
-        homePage.clearTheCart();
     }
 
     @Given("Randomly select any of the Jean Kadin Erkek categories.")
@@ -71,10 +51,6 @@ public class HomePageStep {
         homePage.selectRandomlySizeOptions();
     }
 
-    @Given("Randomly add the selected size to the cart and go to cart.")
-    public void randomly_add_the_selected_size_to_the_cart_and_go_to_cart() throws InterruptedException {
-        homePage.addAndGoCart();
-    }
     @Given("Click on the Hediye Paketi Istiyorum.")
     public void click_on_the_hediye_paketi_istiyorum() {
         homePage.getHediyePackCheckBox().click();
@@ -95,10 +71,7 @@ public class HomePageStep {
     public void enter_incorrect_credit_card_details_and_complete_the_order() throws InterruptedException, IOException {
         homePage.enterCardInfo();
     }
-    @Given("Go back to the cart and increase the quantity by {int}.")
-    public void go_back_to_the_cart_and_increase_the_quantity_by(Integer int1) {
-        homePage.goBackCartAndIncrease(int1);
-    }
+
     @Given("log out.")
     public void log_out() {
         homePage.getAccountIcon().click();

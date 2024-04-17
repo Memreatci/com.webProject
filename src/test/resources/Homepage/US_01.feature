@@ -1,4 +1,4 @@
-Feature: 1- Lee.com.tr Sayfasına git. ( Site açıldığında çıkan bildirimlere ve pop uplara dikkat edilmeli. )
+Feature: Go to Lee.com.tr. (Pay attention to the notifications and pop-ups that appear when the site is opened.)
 
   @us1
   Scenario:
@@ -16,6 +16,6 @@ Feature: 1- Lee.com.tr Sayfasına git. ( Site açıldığında çıkan bildiriml
     * Press the buy button and continue
     * On the delivery information page, add a new address and proceed.
     * Enter incorrect credit card details and complete the order.
-    #* Go back to the cart and increase the quantity by 1.
-    #* log out.
-    #* Close the browser.
+    * Go back to the cart and increase the quantity by 1.
+    * log out.
+    * Close the browser.
