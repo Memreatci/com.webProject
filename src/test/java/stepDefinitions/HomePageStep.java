@@ -1,31 +1,19 @@
 package stepDefinitions;
 
-import io.cucumber.java.Scenario;
+
 import io.cucumber.java.en.Given;
-import org.junit.Assert;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import pages.BasePage;
-import pages.HomePage;
 import utilities.ConfigReader;
 import utilities.Driver;
 
 import java.io.IOException;
-import java.time.Duration;
 
-import static org.testng.Assert.assertFalse;
-import static org.testng.Assert.assertTrue;
 
-public class HomePageStep extends BasePage {
-
-    HomePage homePage;
-    private WebDriverWait wait;
+public class HomePageStep extends BaseStep {
 
     @Given("The user goes to the {string}. Pay attention to notifications and pop ups.")
     public void user_goes_to_lee_com_tr_page_pay_attention_to_notifications_and_pop_ups(String url) throws InterruptedException {
+        info("Initializing the automation test");
         Driver.getDriver().get(ConfigReader.getProperty(url));
         homePage.popupReject.click();
     }
@@ -55,18 +43,22 @@ public class HomePageStep extends BasePage {
     public void click_on_the_hediye_paketi_istiyorum() {
         homePage.getHediyePackCheckBox().click();
     }
+
     @Given("Enter a random code in the promo code field")
     public void enter_a_random_code_in_the_promo_code_field() throws IOException {
         homePage.enterPromotion();
     }
+
     @Given("Press the buy button and continue")
     public void press_the_buy_button_and_continue() {
         homePage.getSatinAlButton().click();
     }
+
     @Given("On the delivery information page, add a new address and proceed.")
     public void on_the_delivery_information_page_add_a_new_address_and_proceed() throws InterruptedException {
         homePage.addANewAddress();
     }
+
     @Given("Enter incorrect credit card details and complete the order.")
     public void enter_incorrect_credit_card_details_and_complete_the_order() throws InterruptedException, IOException {
         homePage.enterCardInfo();
@@ -75,9 +67,10 @@ public class HomePageStep extends BasePage {
     @Given("log out.")
     public void log_out() {
         homePage.getAccountIcon().click();
-        wait.until(ExpectedConditions.elementToBeClickable(homePage.getCıkısYapLink()));
-        homePage.getCıkısYapLink().click();
+        wait.until(ExpectedConditions.elementToBeClickable(homePage.getCikisYapLink()));
+        homePage.getCikisYapLink().click();
     }
+
     @Given("Close the browser.")
     public void close_the_browser() {
         Driver.getDriver().close();

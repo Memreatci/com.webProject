@@ -1,0 +1,1 @@
+{"uuid":"cc636b73-bf62-4d94-b00d-a4442d2bddcc","name":"Scenario: ","children":["271842ef-1b99-4485-9fad-8da9c76a4b64"],"befores":[],"afters":[{"name":"stepDefinitions.Hooks.tearDown(io.cucumber.java.Scenario)","status":"passed","stage":"finished","steps":[],"attachments":[],"parameters":[],"start":1713617835976,"stop":1713617835980}],"start":1713617825235,"stop":1713617835982}

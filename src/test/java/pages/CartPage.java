@@ -8,7 +8,7 @@ public class CartPage extends BasePage{
 
     @FindBy(xpath = "//*[@class='cart-qty']")
     private WebElement cartIcon;
-    @FindBy(xpath = "//*[@class='cl-product-card-button deleteshoppingcartitem']")
+    @FindBy(xpath = "//*[@data-id='661fa55833318c54ba1ea415']")
     private WebElement delIcon;
     @FindBy(xpath = "//*[@onclick='acceptRemove()']")
     private WebElement silButton;

@@ -6,6 +6,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class LoginPage extends BasePage{
 
+    HomePage homePage = new HomePage();
     @FindBy(xpath = "//*[@id='Email']")
     private WebElement mailTextBox;
     @FindBy(xpath = "//*[@id='Password']")

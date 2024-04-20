@@ -1,0 +1,4 @@
+2024-04-20 18:37:35,296 INFO  [WebDriverManager] Using chromedriver 124.0.6367.60 (resolved driver for Chrome 124) 
+2024-04-20 18:37:35,324 INFO  [WebDriverManager] Exporting webdriver.chrome.driver as C:\Users\pc\.cache\selenium\chromedriver\win64\124.0.6367.60\chromedriver.exe 
+2024-04-20 18:37:36,485 INFO  [BaseStep] Initializing the automation test 
+2024-04-20 18:37:42,334 WARN  [BaseStep] the entry process was done. 

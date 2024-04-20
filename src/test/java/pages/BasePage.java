@@ -16,9 +16,7 @@ public abstract class BasePage {
     protected final Random random;
     protected final JavascriptExecutor js;
     protected final Faker faker;
-    protected final HomePage homePage;
-    protected final LoginPage loginPage;
-    protected final CartPage cartPage;
+
 
     public BasePage() {
         PageFactory.initElements(Driver.getDriver(), this);
@@ -27,9 +25,7 @@ public abstract class BasePage {
         random = new Random();
         js = (JavascriptExecutor) Driver.getDriver();
         faker = new Faker();
-        homePage = new HomePage();
-        loginPage = new LoginPage();
-        cartPage = new CartPage();
+
     }
 
 

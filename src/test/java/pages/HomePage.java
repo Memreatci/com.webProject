@@ -84,11 +84,11 @@ public class HomePage extends BasePage {
     @FindBy(id = "_hjSafeContext_96454205")
     private WebElement iframeElement;
     @FindBy(xpath = "//*[@class='log-out']")
-    private WebElement cıkısYapLink;
+    private WebElement cikisYapLink;
 
 
-    public WebElement getCıkısYapLink() {
-        return cıkısYapLink;
+    public WebElement getCikisYapLink() {
+        return cikisYapLink;
     }
 
     public WebElement getIframeElement() {

@@ -1,22 +1,24 @@
-package pages;
+package utilities;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.xml.DOMConfigurator;
 
-public class log {
+public class MyLogClass {
 
-    static Logger logger = Logger.getLogger(log.class);
+    private static final Logger logger = Logger.getLogger(MyLogClass.class);
 
-    public log(){
-        DOMConfigurator.configure("log4j.xml");
+    public MyLogClass(){
+        DOMConfigurator.configure("logd4j.properties");
     }
 
     public void info(String message){
         logger.info(message);
     }
+
     public void warn(String message){
         logger.warn(message);
     }
+
     public void error(String message){
         logger.error(message);
     }

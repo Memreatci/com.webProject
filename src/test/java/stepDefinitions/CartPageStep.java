@@ -3,7 +3,7 @@ package stepDefinitions;
 import io.cucumber.java.en.Given;
 import pages.BasePage;
 
-public class CartPageStep extends BasePage {
+public class CartPageStep extends BaseStep {
 
 
     @Given("The user goes to the cart and checks it.")
