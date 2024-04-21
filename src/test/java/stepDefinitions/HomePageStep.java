@@ -13,7 +13,7 @@ public class HomePageStep extends BaseStep {
 
     @Given("The user goes to the {string}. Pay attention to notifications and pop ups.")
     public void user_goes_to_lee_com_tr_page_pay_attention_to_notifications_and_pop_ups(String url) throws InterruptedException {
-        info("Initializing the automation test");
+       // info("Initializing the automation test");
         Driver.getDriver().get(ConfigReader.getProperty(url));
         homePage.popupReject.click();
     }

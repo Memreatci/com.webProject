@@ -1,7 +1,6 @@
-Feature: Go to Lee.com.tr. Pay attention to the notifications and pop-ups that appear when the site is opened.
-
+Feature: Automation Test Challenge
   @us1
-  Scenario:
+  Scenario: E2E Testing
 
     * The user goes to the "homeUrl". Pay attention to notifications and pop ups.
     * The user logs in to the existing membership with valid "mail" and "password" information.
