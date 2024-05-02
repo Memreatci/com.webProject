@@ -1,0 +1,10 @@
+2024-05-02 18:37:07,563 INFO  [MyLogClass] SCENARIO : 'E2E Testing' - is started 2024-05-02T18:37:07.562895600 
+2024-05-02 18:37:09,783 INFO  [WebDriverManager] Using chromedriver 124.0.6367.91 (resolved driver for Chrome 124) 
+2024-05-02 18:37:09,826 INFO  [WebDriverManager] Exporting webdriver.chrome.driver as C:\Users\pc\.cache\selenium\chromedriver\win64\124.0.6367.91\chromedriver.exe 
+2024-05-02 18:37:19,981 INFO  [MyLogClass] The entry process was done. 
+2024-05-02 18:37:19,983 INFO  [MyLogClass] SCENARIO : E2E Testing - is over 
+2024-05-02 18:46:20,851 INFO  [MyLogClass] SCENARIO : 'E2E Testing' - is started 2024-05-02T18:46:20.850022900 
+2024-05-02 18:46:21,295 INFO  [WebDriverManager] Using chromedriver 124.0.6367.91 (resolved driver for Chrome 124) 
+2024-05-02 18:46:21,350 INFO  [WebDriverManager] Exporting webdriver.chrome.driver as C:\Users\pc\.cache\selenium\chromedriver\win64\124.0.6367.91\chromedriver.exe 
+2024-05-02 18:46:49,690 INFO  [MyLogClass] The entry process was done. 
+2024-05-02 18:46:49,798 INFO  [MyLogClass] SCENARIO : E2E Testing - is over 

@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+
+     environment {
+            MAVEN_HOME = tool 'Maven'
+            JAVA_HOME = tool 'Java'
+
+    stages {
+        stage('Build') {
+            steps {
+             echo 'Building the project...'
+                sh "${MAVEN_HOME}/bin/mvn clean install"
+            }
+        }
+
+
+
+
+
+
+
+    }
+
+}
