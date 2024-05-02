@@ -118,7 +118,7 @@
                     <perCoreThreadCount>false</perCoreThreadCount>
                     <testFailureIgnore>true</testFailureIgnore>
                     <includes>
-                        <include>**runners.Runnerr.java</include>
+                        <include>**runners.Runner.java</include>
                     </includes>
                 </configuration>
             </plugin>
