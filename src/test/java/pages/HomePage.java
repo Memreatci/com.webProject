@@ -1,6 +1,7 @@
 package pages;
 
 import org.apache.commons.io.FileUtils;
+import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -12,6 +13,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.stream.Collectors;
 
 public class HomePage extends BasePage {
 
@@ -29,20 +31,11 @@ public class HomePage extends BasePage {
     private WebElement sizeOptions;
     @FindBy(xpath = "//*[@class='add-to-cart-button cl-big-button']")
     private WebElement sepeteEkleButton;
-    @FindBy(xpath = "//*[@class='fancy-go-to-cart-button cl-big-button'] ")
-    private WebElement cartAlert;
-    @FindBy(xpath = "//*[@class='cl-product-card-checkbox-container']")
-    private WebElement hediyePackCheckBox;
-    @FindBy(id = "discountcouponcode")
-    private WebElement indirimKodTextBox;
-    @FindBy(xpath = "//*[@class='toast-message']")
-    private WebElement errorMessage;
-    @FindBy(className = "cl-input-button")
-    private WebElement uygulaButton;
-    @FindBy(id = "checkout")
-    private WebElement satinAlButton;
+
     @FindBy(xpath = "(//*[@title='Close'])[2]")
     private WebElement smallCloseIcon;
+    @FindBy(xpath = "//*[@class='cl-checkout-tab-section-header']/p")
+    private WebElement newAddressName;
     @FindBy(xpath = "//*[@class='add-new-address-button']")
     private WebElement addNewAddress;
     @FindBy(xpath = "(//*[@id='address_attribute_5eae2115f6f875754ba14134'])[2]")
@@ -77,15 +70,16 @@ public class HomePage extends BasePage {
     private WebElement onBilgCheckBox;
     @FindBy(id = "completeOrderButton")
     private WebElement siparisiTamamlaButton;
-    @FindBy(xpath = "//*[@class='pagenotfound-content']")
+    @FindBy(xpath = "//*[@class='page text-center not-found-page cl-not-found-page']/div")
     private WebElement hataMesajText;
     @FindBy(id = "cancelBtn")
     private WebElement kapatButton;
-    @FindBy(id = "_hjSafeContext_96454205")
+    @FindBy(id = "treediframe")
     private WebElement iframeElement;
     @FindBy(xpath = "//*[@class='log-out']")
     private WebElement cikisYapLink;
-
+    @FindBy(xpath = "//*[@class='cl-product-price']")
+    private List<WebElement> productPrice;
 
     public WebElement getCikisYapLink() {
         return cikisYapLink;
@@ -103,14 +97,6 @@ public class HomePage extends BasePage {
         return hataMesajText;
     }
 
-    public WebElement getSatinAlButton() {
-        return satinAlButton;
-    }
-
-    public WebElement getHediyePackCheckBox() {
-        return hediyePackCheckBox;
-    }
-
     public List<WebElement> getProductList() {
         return productList;
     }
@@ -118,7 +104,6 @@ public class HomePage extends BasePage {
     public WebElement getAccountIcon() {
         return accountIcon;
     }
-
 
     public void clickRandom() {
 
@@ -137,9 +122,9 @@ public class HomePage extends BasePage {
     public void clickAndSorting() throws InterruptedException {
         wait.until(ExpectedConditions.elementToBeClickable(sortingDropBox));
         sortingDropBox.click();
-        Thread.sleep(1500);
+        Thread.sleep(500);
         Select select = new Select(sortingDropBox);
-        select.selectByIndex(0);
+        select.selectByValue("10");
     }
 
     public void selectRandomlySizeOptions() throws InterruptedException {
@@ -154,8 +139,10 @@ public class HomePage extends BasePage {
             int index = 0;
             for (int i = 0; i < options.size(); i++) {
                 index = random.nextInt(options.size());
-                if (!(options.get(index).getText().contains("Haber") && index == 0)) {
+                if (!(options.get(index).getText().contains("Haber") || index == 0)) {
                     break;
+                } else {
+
                 }
             }
             System.out.println("index = " + index);
@@ -165,26 +152,8 @@ public class HomePage extends BasePage {
         }
     }
 
-    public void addAndGoCart() throws InterruptedException {
 
-        js.executeScript("arguments[0].scrollIntoView();", sepeteEkleButton);
-        sepeteEkleButton.click();
-        Thread.sleep(1000);
-        cartAlert.click();
-        Thread.sleep(1500);
-    }
-
-    public void enterPromotion() throws IOException {
-        wait.until(ExpectedConditions.elementToBeClickable(indirimKodTextBox));
-        indirimKodTextBox.sendKeys(faker.code().imei());
-        uygulaButton.click();
-        wait.until(ExpectedConditions.elementToBeClickable(errorMessage));
-        getScreenshot("warningMessage");
-        System.out.println("errorMessage = " + errorMessage.getText());
-
-    }
-
-    public void addANewAddress() throws InterruptedException {
+    public void addANewAddressAndAssertion() throws InterruptedException {
         smallCloseIcon.click();
         wait.until(ExpectedConditions.elementToBeClickable(addNewAddress)).click();
         wait.until(ExpectedConditions.elementToBeClickable(addressKolayAd)).sendKeys(faker.name().fullName());
@@ -204,6 +173,7 @@ public class HomePage extends BasePage {
         Thread.sleep(500);
         addressKaydetButton.click();
         Thread.sleep(500);
+        Assert.assertTrue(newAddressName.isDisplayed());
         devamEtButton.click();
     }
 
@@ -212,7 +182,7 @@ public class HomePage extends BasePage {
         kartNumarasiText.sendKeys(faker.business().creditCardNumber());
         Thread.sleep(500);
         Select select = new Select(kartTarihAyDrop);
-        select.selectByIndex(faker.random().nextInt(12) + 1);
+        select.selectByIndex(faker.random().nextInt(12));
         Thread.sleep(500);
         select = new Select(kartTarihYilDrop);
         int randomYear = ThreadLocalRandom.current().nextInt(2024, 2039);
@@ -224,28 +194,40 @@ public class HomePage extends BasePage {
         actions.moveToElement(siparisiTamamlaButton).click().perform();
         Thread.sleep(3000);
 
-        try {
-            String alertText = Driver.getDriver().switchTo().alert().getText();
-            System.out.println("alertText = " + alertText);
-            Driver.getDriver().switchTo().alert().accept();
-        } catch (Exception e) {
 
-        }
         try {
-            String frameText = getHataMesajText().getText();
-            System.out.println("frameText = " + frameText);
-            getKapatButton().click();
+            boolean alertHandled = false;
+            try {
+                String alertText = Driver.getDriver().switchTo().alert().getText();
+                System.out.println("Error Message = " + alertText);
+                Driver.getDriver().switchTo().alert().accept();
+                alertHandled = true;
+            } catch (NoAlertPresentException e) {
+                //if there are no warnings, do nothing
+            }
+            if (!alertHandled) {
+                try {
+                    Driver.getDriver().switchTo().frame(iframeElement);
+                    String frameText = getHataMesajText().getText();
+                    System.out.println("Error Message = " + frameText);
+                    getKapatButton().click();
+                    Driver.getDriver().switchTo().parentFrame();
+                    Thread.sleep(500);
+                } catch (Exception e) {
+                }
+            }
         } catch (Exception e) {
         }
     }
 
-    public static String getScreenshot(String name) throws IOException {
-        String date = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
-        TakesScreenshot ts = (TakesScreenshot) Driver.getDriver();
-        File source = ts.getScreenshotAs(OutputType.FILE);
-        String target = System.getProperty("user.dir") + "/target/Screenshots/" + name + date + ".png";
-        File finalDestination = new File(target);
-        FileUtils.copyFile(source, finalDestination);
-        return target;
+    public void assertionSort() {
+
+        List<Double> prodPriceList = new ArrayList<>();
+        for (int i = 0; i < productPrice.size(); i++) {
+            prodPriceList.add(Double.valueOf(productPrice.get(i).getText().replaceAll("[^\\d,]", "").replace(",", ".")));
+        }
+        for (int i = 1; i < prodPriceList.size(); i++) {
+            Assert.assertTrue(prodPriceList.get(i - 1) <= prodPriceList.get(i));
+        }
     }
 }

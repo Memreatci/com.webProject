@@ -1,22 +1,44 @@
 package stepDefinitions;
 
-import io.cucumber.java.After;
-import io.cucumber.java.Scenario;
+
+import io.cucumber.java.*;
+import net.masterthought.cucumber.ReportResult;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import utilities.Driver;
+import utilities.MyLogClass;
 
-public class Hooks extends BaseStep{
+import java.time.LocalDateTime;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+
+
+public class Hooks {
+    static MyLogClass log = new MyLogClass();
+
+    @Before
+    public static void setupScenario(Scenario scenario) {
+
+        System.out.println("SCENARIO : '" + scenario.getName() + "' - is started " + LocalDateTime.now());
+        log.info("SCENARIO : '" + scenario.getName() + "' - is started " + LocalDateTime.now());
+    }
 
     @After
-    public void tearDown(Scenario scenario){
+    public void tearDown(Scenario scenario) {
 
         if (scenario.isFailed()) {
-            final byte[] screenshot=((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
-            scenario.attach(screenshot, "image/png","screenshots");
-          //  error("ERROR - ERROR - ERROR" + scenario.getName() + "--" + scenario.getLine());
-            Driver.closeDriver();
+            System.out.println("SCENARIO : " + scenario.getName() + " - is FAILED");
+            log.error("SCENARIO : " + scenario.getName() + " - is FAILED");
+            final byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
+            scenario.attach(screenshot, "image/png", "screenshots");
+            //Driver.closeDriver();
+        } else {
+            System.out.println("SCENARIO : " + scenario.getName() + " - is over");
+            log.info("SCENARIO : " + scenario.getName() + " - is over");
         }
 
+
     }
+
 }

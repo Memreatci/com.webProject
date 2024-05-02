@@ -149,3 +149,87 @@
     </root>
 
 </log4j:configuration>
+
+
+
+
+
+
+  @BeforeAll
+    public static void beforeall() {
+
+        List<String> headerList = new LinkedList<>(Arrays.asList("Test Name ", "Test Status", "Date and Time"));
+
+        /*createData();
+        writeHeader(headerList);
+        writeDataList(new ArrayList<>(Arrays.asList("Test started", "Start Date and Time", getCurrentTime())));
+        saveData();*/
+
+        getLogger().info("Test Started");
+
+    }
+
+    @Before
+    public void beforeScenario(Scenario scenario) {
+        driver = Driver.getDriver();
+
+        /*createData();
+        writeDataList(new ArrayList<>(Arrays.asList(scenario.getName(), "Senaryo Başladı", getCurrentTime())));
+        saveData();*/
+
+        getLogger().info("SCENARIO : '"+scenario.getName()+"' - is started");
+
+
+    }
+
+    @After
+    public void afterScenario(Scenario scenario) {
+
+        //createData();
+        if (scenario.isFailed()) {
+            //writeDataList(new ArrayList<>(Arrays.asList(scenario.getName(), "Unsuccessful", getCurrentTime())));
+            getLogger().error("SCENARIO : "+scenario.getName()+" - is FAILED");
+        } else {
+            //writeDataList(new ArrayList<>(Arrays.asList(scenario.getName(), "Successful", getCurrentTime())));
+            getLogger().info("SCENARIO : "+scenario.getName()+" - is over");
+        }
+        //saveData();
+
+        Driver.quitDriver();
+
+    }
+
+    @AfterAll
+    public static void afterAll() {
+
+       /* createData();
+        writeDataList(new ArrayList<>(Arrays.asList("Test is Over", "End Date and Time", getCurrentTime())));
+        saveData();*/
+
+        getLogger().info("Test is Over");
+
+    }
+https://github.com/ahmetburakaydin/BrandStore-Project-Java-Cucumber-TestNG-ApachePOI-Log4j/blob/master/src/test/java/runners/Listener.java
+
+ @Override
+    public Statement apply(Statement base, Description description) {
+        return new Statement() {
+            @Override
+            public void evaluate() throws Throwable {
+                System.out.println("Test starting: " + description.getDisplayName());
+                logClass.info("Test starting: " + description.getDisplayName());
+                try {
+                    base.evaluate();
+                    System.out.println("Test succeeded: " + description.getDisplayName());
+                    logClass.info("Test succeeded: " + description.getDisplayName());
+                } catch (Throwable t) {
+                    System.out.println("Test failed: " + description.getDisplayName());
+                    logClass.info("Test failed: " + description.getDisplayName());
+                    throw t;
+                } finally {
+                    System.out.println("Test finished: " + description.getDisplayName());
+                    logClass.info("Test finished: " + description.getDisplayName());
+                }
+            }
+        };
+    }

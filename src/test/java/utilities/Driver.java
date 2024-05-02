@@ -8,32 +8,34 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 import java.time.Duration;
+
 public class Driver {
     private static WebDriver driver;
-    private Driver(){
+
+    private Driver() {
 
     }
 
-    public static WebDriver getDriver(){
+    public static WebDriver getDriver() {
 
 
         String istenenBrowser = ConfigReader.getProperty("browser");
         // chrome, firefox, safari, edge
 
 
-        if(driver == null){
+        if (driver == null) {
 
-            switch (istenenBrowser){
-                case "firefox" :
+            switch (istenenBrowser) {
+                case "firefox":
                     WebDriverManager.firefoxdriver().setup();
-                    driver= new FirefoxDriver();
+                    driver = new FirefoxDriver();
                     break;
-                case "safari" :
+                case "safari":
                     WebDriverManager.safaridriver().setup();
-                    driver= new SafariDriver();
+                    driver = new SafariDriver();
                     break;
 
-                case "edge" :
+                case "edge":
                     WebDriverManager.edgedriver().setup();
                     driver = new EdgeDriver();
                     break;
@@ -51,19 +53,19 @@ public class Driver {
     }
 
 
-    public static void closeDriver(){
+    public static void closeDriver() {
 
-        if (driver != null){
+        if (driver != null) {
             driver.close();
-            driver=null;
+            driver = null;
         }
     }
 
-    public static void quitDriver(){
+    public static void quitDriver() {
 
-        if (driver != null){
+        if (driver != null) {
             driver.quit();
-            driver=null;
+            driver = null;
         }
     }
 }
