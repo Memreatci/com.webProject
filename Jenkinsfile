@@ -10,14 +10,15 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building the project...'
-                sh "${MAVEN_HOME}/bin/mvn clean install"
+                bat "${MAVEN_HOME}/bin/mvn clean install"
             }
         }
+
 
         stage('Test') {
             steps {
                 echo 'Running tests...'
-                sh "${MAVEN_HOME}/bin/mvn verify"
+                bat "${MAVEN_HOME}/bin/mvn verify"
             }
         }
 
