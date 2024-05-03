@@ -17,5 +17,5 @@ Feature: Automation Test Challenge
     * On the delivery information page, add a new address and proceed.
     * Enter incorrect credit card details and complete the order.
     * Go back to the cart and increase the quantity by 1.
-    #* log out.
+    * log out.
     * Close the browser.
