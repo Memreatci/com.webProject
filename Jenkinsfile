@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     environment {
-            MAVEN_HOME = tool 'Maven'
-            JAVA_HOME = tool 'Java'
-        }
+        MAVEN_HOME = tool 'Maven'
+        JAVA_HOME = tool 'Java'
+    }
 
     stages {
         stage('Checkout') {
@@ -17,7 +17,10 @@ pipeline {
             steps {
                 bat 'mvn clean test'
 
-                junit 'target/surefire-reports/*.xml'
+                // Cucumber test raporlarını tarama (eğer varsa)
+                junit 'target/cucumber-html-reports/*.html'
+
+
             }
         }
     }
@@ -25,35 +28,29 @@ pipeline {
     post {
         always {
 
-            junit 'target/surefire-reports/*.xml'
 
+            // Cucumber test sonuç raporlarını tarama
+            junit 'target/cucumber-html-reports/*.html'
 
+            // E-posta gönderimi
             script {
                 if (currentBuild.result == 'SUCCESS') {
-
                     emailext(
                         to: '35test42@gmail.com',
                         subject: 'The tests were successfully completed.',
                         body: 'Test Results - Error Free',
-                        attachLog: true
+                        attachLog: true,
+
                     )
                 } else if (currentBuild.result == 'FAILURE') {
-
                     emailext(
                         to: '35test42@gmail.com',
                         subject: 'There was an error in the tests, please check.',
-                        body: 'Tests fail',
-                        attachLog: true
+                        body: 'Tests failed',
+                        attachLog: true,
                     )
                 }
             }
         }
     }
 }
-
-
-
-
-
-
-
