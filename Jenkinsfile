@@ -9,45 +9,40 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Kod deposundan projeyi çekme
                 checkout scm
             }
         }
 
         stage('Build and Test') {
             steps {
-                // Maven kullanarak projenin derlenmesi ve test edilmesi
                 bat 'mvn clean test'
 
-                // Test sonuçlarını toplama
-                junit 'target/cucumber-html-reports/*.xml'
+                glob: '**/target/cucumber-html-reports/*.html').first()
             }
         }
     }
 
     post {
         always {
-            // Test sonuçlarını toplama
-            junit 'target/cucumber-html-reports/*.xml'
 
-            // Duruma göre farklı e-posta mesajları gönderme
+            glob: '**/target/cucumber-html-reports/*.html').first()
+
+
             script {
                 if (currentBuild.result == 'SUCCESS') {
-                    // Test sonuçları başarılıysa e-posta gönder
+
                     emailext(
                         to: '35test42@gmail.com',
-                        subject: 'Test Sonuçları: Başarılı',
-                        body: '''Merhaba,Yapılan testler başarıyla tamamlandı. Test sonuçlarına aşağıdaki bağlantıdan erişebilirsiniz:
-                        ${BUILD_URL}artifact/target/surefire-reports/İyi çalışmalar!''',
+                        subject: 'The tests were successfully completed.',
+                        body: 'Test Results - Error Free',
                         attachLog: true
                     )
                 } else if (currentBuild.result == 'FAILURE') {
-                    // Test sonuçları başarısızsa e-posta gönder
+
                     emailext(
                         to: '35test42@gmail.com',
-                        subject: 'Test Sonuçları: Başarısız',
-                        body: '''Merhaba,Yapılan testler başarısız oldu. Lütfen test sonuçlarını kontrol edin:
-                        ${BUILD_URL}artifact/target/surefire-reports/ İyi çalışmalar!''',
+                        subject: 'There was an error in the tests, please check.',
+                        body: 'Tests fail',
                         attachLog: true
                     )
                 }
