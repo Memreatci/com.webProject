@@ -17,7 +17,7 @@ pipeline {
             steps {
                 bat 'mvn clean test'
 
-                glob: '**/target/cucumber-html-reports/*.html').first()
+                junit 'target/cucumber-html-reports/*.html'
             }
         }
     }
@@ -25,7 +25,7 @@ pipeline {
     post {
         always {
 
-            glob: '**/target/cucumber-html-reports/*.html').first()
+            junit 'target/cucumber-html-reports/*.html'
 
 
             script {
