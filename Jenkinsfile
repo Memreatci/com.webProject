@@ -17,9 +17,9 @@ pipeline {
         stage('Test and Send Results') {
             steps {
                 echo 'Running tests...'
-                def testResult = bat(script: 'mvn test', returnStatus: true)
-
                 script {
+                def testResult = bat(script: "${MAVEN_HOME}/bin/mvn verify", returnStatus: true)
+
                     def reportFile = findFiles(glob: '**/target/cucumber-reports/*.html').first()
                     if (reportFile != null) {
                         emailext attachmentsPattern: "**/target/cucumber-reports/*.html",
