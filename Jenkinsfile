@@ -1,5 +1,5 @@
 pipeline {
-     agent any
+    agent any
 
     environment {
         MAVEN_HOME = tool 'Maven'
@@ -14,18 +14,13 @@ pipeline {
             }
         }
 
-
-        stage('Test') {
+        stage('Test and Send Results') {
             steps {
                 echo 'Running tests...'
-                bat "${MAVEN_HOME}/bin/mvn verify"
-            }
-        }
+                def testResult = bat(script: "${MAVEN_HOME}/bin/mvn verify", returnStatus: true)
 
-        stage('Send Test Results') {
-            steps {
                 script {
-                    def reportFile = findFiles(glob: '**/target/cucumber-reports/*.html').first() //target/cucumber-report.html
+                    def reportFile = findFiles(glob: '**/target/cucumber-reports/*.html').first()
                     if (reportFile != null) {
                         emailext attachmentsPattern: "**/target/cucumber-reports/*.html",
                                  subject: 'Test Results',
@@ -34,22 +29,12 @@ pipeline {
                     } else {
                         echo 'Test results not found.'
                     }
-                }
-            }
-        }
 
-        stage('Send Email') {
-            steps {
-                script {
-
-                    def testResult = sh(script: 'mvn test', returnStatus: true)
                     if (testResult == 0) {
-
                         emailext body: 'Tests successfully completed.',
                                  subject: 'Test Results - Error Free',
                                  to: '35test42@gmail.com'
                     } else {
-
                         emailext body: 'Error in tests, please check.',
                                  subject: 'Test Results - Failed',
                                  to: '35test42@gmail.com'
