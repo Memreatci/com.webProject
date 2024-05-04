@@ -250,3 +250,20 @@
 2024-05-04 15:49:30,062 INFO  [MyLogClass] SCENARIO : E2E Testing - is over 
 2024-05-04 15:49:30,065 INFO  [MyLogClass] Test successful: runScenario 
 2024-05-04 15:49:30,145 INFO  [MyLogClass] Test finished : com.LeeTask 
+2024-05-04 19:01:30,228 INFO  [MyLogClass] Test started : runScenario 
+2024-05-04 19:01:30,395 INFO  [MyLogClass] SCENARIO : 'E2E Testing' - is started 2024-05-04T19:01:30.395346200 
+2024-05-04 19:01:30,888 INFO  [WebDriverManager] Using chromedriver 124.0.6367.91 (resolved driver for Chrome 124) 
+2024-05-04 19:01:30,958 INFO  [WebDriverManager] Exporting webdriver.chrome.driver as C:\Users\pc\.cache\selenium\chromedriver\win64\124.0.6367.91\chromedriver.exe 
+2024-05-04 19:01:41,180 INFO  [MyLogClass] The entry process was done. 
+2024-05-04 19:01:57,560 INFO  [MyLogClass] Success Cart is empty 
+2024-05-04 19:01:59,598 INFO  [MyLogClass] One of the categories 'Kadýn', 'Erkek', and 'Jean' was randomly selected. 
+2024-05-04 19:02:02,544 INFO  [MyLogClass] On the product listing page, products are sorted in ascending order by price. 
+2024-05-04 19:02:04,944 INFO  [MyLogClass] First product selected. 
+2024-05-04 19:02:15,034 INFO  [MyLogClass] Any of the size options was randomly selected. 
+2024-05-04 19:02:21,241 INFO  [MyLogClass] A random promo code was entered. 
+2024-05-04 19:02:26,993 INFO  [MyLogClass] Order information and address information entered. 
+2024-05-04 19:02:34,763 INFO  [MyLogClass] Product quantity increased. 
+2024-05-04 19:02:38,276 INFO  [MyLogClass] Successfully exited 
+2024-05-04 19:02:38,387 INFO  [MyLogClass] SCENARIO : E2E Testing - is over 
+2024-05-04 19:02:38,392 INFO  [MyLogClass] Test successful: runScenario 
+2024-05-04 19:02:38,492 INFO  [MyLogClass] Test finished : Surefire test 
