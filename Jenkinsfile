@@ -17,7 +17,7 @@ pipeline {
             steps {
                 bat 'mvn clean test'
 
-                junit 'target/cucumber-html-reports/*.xml'
+                junit 'target/surefire-reports/*.xml'
             }
         }
     }
@@ -25,7 +25,7 @@ pipeline {
     post {
         always {
 
-            junit 'target/cucumber-html-reports/*.xml'
+            junit 'target/surefire-reports/*.xml'
 
 
             script {
