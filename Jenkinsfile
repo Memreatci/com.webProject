@@ -15,11 +15,9 @@ pipeline {
 
         stage('Build and Test') {
             steps {
+
                 bat 'mvn clean test'
-
-                // Cucumber test raporlarını tarama (eğer varsa)
-                  cucumber '**/target/cucumber-html-reports/*.html'
-
+                bat 'cucumber --format json -o target/cucumber.json'
 
             }
         }
