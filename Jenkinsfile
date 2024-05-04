@@ -14,27 +14,41 @@ pipeline {
             }
         }
 
-        stage('Test and Send Results') {
+        stage('Test') {
             steps {
                 echo 'Running tests...'
-                script {
-                def testResult = bat(script: "${MAVEN_HOME}/bin/mvn verify", returnStatus: true)
+                bat "${MAVEN_HOME}/bin/mvn verify"
+            }
+        }
 
-                    def reportFile = findFiles(glob: '**/target/cucumber-reports/*.html').first()
+        stage('Send Test Results') {
+            steps {
+                script {
+                    def reportFile = findFiles(glob: '**/target/cucumber-reports/*.json').first()
                     if (reportFile != null) {
-                        emailext attachmentsPattern: "**/target/cucumber-reports/*.html",
+                        emailext attachmentsPattern: "**/target/cucumber-reports/*.json",
                                  subject: 'Test Results',
                                  body: 'Please find attached the test results.',
                                  to: '35test42@gmail.com'
                     } else {
                         echo 'Test results not found.'
                     }
+                }
+            }
+        }
 
+        stage('Send Email') {
+            steps {
+                script {
+
+                    def testResult = sh(script: 'mvn test', returnStatus: true)
                     if (testResult == 0) {
+
                         emailext body: 'Tests successfully completed.',
                                  subject: 'Test Results - Error Free',
                                  to: '35test42@gmail.com'
                     } else {
+
                         emailext body: 'Error in tests, please check.',
                                  subject: 'Test Results - Failed',
                                  to: '35test42@gmail.com'
@@ -44,7 +58,10 @@ pipeline {
         }
     }
 
-    triggers {
-        cron('0 8 * * *')
-    }
+
 }
+
+
+
+
+

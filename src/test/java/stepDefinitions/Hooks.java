@@ -2,16 +2,11 @@ package stepDefinitions;
 
 
 import io.cucumber.java.*;
-import net.masterthought.cucumber.ReportResult;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import utilities.Driver;
 import utilities.MyLogClass;
-
 import java.time.LocalDateTime;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
 
 
 public class Hooks {

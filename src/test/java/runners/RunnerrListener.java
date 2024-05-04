@@ -8,10 +8,10 @@ import utilities.CustomTestListener;
 
 @Listeners(CustomTestListener.class)
 @CucumberOptions(
-        plugin = {//"pretty",
-                "html:target/cucumber-report.html",
-                "rerun:target/rerun.txt",
-                "me.jvt.cucumber.report.PrettyReports:target/cucumber-reports",
+        plugin = {"pretty",
+                "html:target/cucumber-reports.html",
+                "json:target/json-reports/cucumber.json",
+                "junit:target/xml-report/cucumber.xml",
         },
         features = "src/test/resources",
         glue = "stepDefinitions",

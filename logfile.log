@@ -39,3 +39,194 @@
 2024-05-03 18:39:15,579 INFO  [MyLogClass] Product quantity increased. 
 2024-05-03 18:39:17,003 INFO  [MyLogClass] Successfully exited 
 2024-05-03 18:39:17,106 INFO  [MyLogClass] SCENARIO : E2E Testing - is over 
+2024-05-04 12:40:50,884 INFO  [MyLogClass] SCENARIO : 'E2E Testing' - is started 2024-05-04T12:40:50.883779300 
+2024-05-04 12:40:51,264 INFO  [WebDriverManager] Using chromedriver 124.0.6367.91 (resolved driver for Chrome 124) 
+2024-05-04 12:40:51,291 INFO  [WebDriverManager] Exporting webdriver.chrome.driver as C:\Users\pc\.cache\selenium\chromedriver\win64\124.0.6367.91\chromedriver.exe 
+2024-05-04 12:40:58,082 INFO  [MyLogClass] The entry process was done. 
+2024-05-04 12:41:14,559 INFO  [MyLogClass] Success Cart is empty 
+2024-05-04 12:41:16,427 INFO  [MyLogClass] One of the categories 'KadÄ±n', 'Erkek', and 'Jean' was randomly selected. 
+2024-05-04 12:41:18,443 ERROR [MyLogClass] SCENARIO : E2E Testing - is FAILED 
+2024-05-04 12:44:10,333 INFO  [MyLogClass] SCENARIO : 'E2E Testing' - is started 2024-05-04T12:44:10.333343700 
+2024-05-04 12:44:10,584 INFO  [WebDriverManager] Using chromedriver 124.0.6367.91 (resolved driver for Chrome 124) 
+2024-05-04 12:44:10,611 INFO  [WebDriverManager] Exporting webdriver.chrome.driver as C:\Users\pc\.cache\selenium\chromedriver\win64\124.0.6367.91\chromedriver.exe 
+2024-05-04 12:44:18,223 INFO  [MyLogClass] The entry process was done. 
+2024-05-04 12:44:34,506 INFO  [MyLogClass] Success Cart is empty 
+2024-05-04 12:44:35,649 INFO  [MyLogClass] One of the categories 'Kadýn', 'Erkek', and 'Jean' was randomly selected. 
+2024-05-04 12:44:38,719 INFO  [MyLogClass] On the product listing page, products are sorted in ascending order by price. 
+2024-05-04 12:44:39,577 INFO  [MyLogClass] First product selected. 
+2024-05-04 12:44:43,193 INFO  [MyLogClass] Any of the size options was randomly selected. 
+2024-05-04 12:44:47,747 INFO  [MyLogClass] A random promo code was entered. 
+2024-05-04 12:44:50,145 ERROR [MyLogClass] SCENARIO : E2E Testing - is FAILED 
+2024-05-04 12:45:08,310 INFO  [MyLogClass] SCENARIO : 'E2E Testing' - is started 2024-05-04T12:45:08.310928300 
+2024-05-04 12:45:08,728 INFO  [WebDriverManager] Using chromedriver 124.0.6367.91 (resolved driver for Chrome 124) 
+2024-05-04 12:45:08,764 INFO  [WebDriverManager] Exporting webdriver.chrome.driver as C:\Users\pc\.cache\selenium\chromedriver\win64\124.0.6367.91\chromedriver.exe 
+2024-05-04 12:45:16,843 INFO  [MyLogClass] The entry process was done. 
+2024-05-04 12:45:33,312 INFO  [MyLogClass] Success Cart is empty 
+2024-05-04 12:45:34,371 INFO  [MyLogClass] One of the categories 'KadÄ±n', 'Erkek', and 'Jean' was randomly selected. 
+2024-05-04 12:45:37,233 INFO  [MyLogClass] On the product listing page, products are sorted in ascending order by price. 
+2024-05-04 12:45:38,140 INFO  [MyLogClass] First product selected. 
+2024-05-04 12:45:41,749 INFO  [MyLogClass] Any of the size options was randomly selected. 
+2024-05-04 12:45:46,432 INFO  [MyLogClass] A random promo code was entered. 
+2024-05-04 12:45:52,329 INFO  [MyLogClass] Order information and address information entered. 
+2024-05-04 12:45:59,043 INFO  [MyLogClass] Product quantity increased. 
+2024-05-04 12:46:00,345 INFO  [MyLogClass] Successfully exited 
+2024-05-04 12:46:00,470 INFO  [MyLogClass] SCENARIO : E2E Testing - is over 
+2024-05-04 12:54:14,151 INFO  [MyLogClass] SCENARIO : 'E2E Testing' - is started 2024-05-04T12:54:14.151551400 
+2024-05-04 12:54:14,449 INFO  [WebDriverManager] Using chromedriver 124.0.6367.91 (resolved driver for Chrome 124) 
+2024-05-04 12:54:14,472 INFO  [WebDriverManager] Exporting webdriver.chrome.driver as C:\Users\pc\.cache\selenium\chromedriver\win64\124.0.6367.91\chromedriver.exe 
+2024-05-04 12:54:20,989 INFO  [MyLogClass] The entry process was done. 
+2024-05-04 12:54:37,491 INFO  [MyLogClass] Success Cart is empty 
+2024-05-04 12:54:38,709 INFO  [MyLogClass] One of the categories 'Kadýn', 'Erkek', and 'Jean' was randomly selected. 
+2024-05-04 12:54:41,520 INFO  [MyLogClass] On the product listing page, products are sorted in ascending order by price. 
+2024-05-04 12:54:42,968 INFO  [MyLogClass] First product selected. 
+2024-05-04 12:54:46,551 INFO  [MyLogClass] Any of the size options was randomly selected. 
+2024-05-04 12:54:51,281 INFO  [MyLogClass] A random promo code was entered. 
+2024-05-04 12:54:56,983 INFO  [MyLogClass] Order information and address information entered. 
+2024-05-04 12:55:04,055 INFO  [MyLogClass] Product quantity increased. 
+2024-05-04 12:55:05,924 INFO  [MyLogClass] Successfully exited 
+2024-05-04 12:55:06,053 INFO  [MyLogClass] SCENARIO : E2E Testing - is over 
+2024-05-04 13:08:52,459 INFO  [Utils] [TestNG] Running:
+  C:\Users\pc\AppData\Local\JetBrains\IdeaIC2023.1\temp-testng-customsuite.xml
+ 
+2024-05-04 13:08:53,147 INFO  [MyLogClass] Test started : runScenario 
+2024-05-04 13:08:53,254 INFO  [MyLogClass] SCENARIO : 'E2E Testing' - is started 2024-05-04T13:08:53.254569100 
+2024-05-04 13:08:53,611 INFO  [WebDriverManager] Using chromedriver 124.0.6367.91 (resolved driver for Chrome 124) 
+2024-05-04 13:08:53,642 INFO  [WebDriverManager] Exporting webdriver.chrome.driver as C:\Users\pc\.cache\selenium\chromedriver\win64\124.0.6367.91\chromedriver.exe 
+2024-05-04 13:09:00,213 INFO  [MyLogClass] The entry process was done. 
+2024-05-04 13:09:16,623 INFO  [MyLogClass] Success Cart is empty 
+2024-05-04 13:09:16,625 INFO  [MyLogClass] SCENARIO : E2E Testing - is over 
+2024-05-04 13:09:16,628 INFO  [MyLogClass] Test successful: runScenario 
+2024-05-04 13:09:17,485 INFO  [MyLogClass] Test finished : com.LeeTask 
+2024-05-04 13:10:03,768 INFO  [MyLogClass] Test started : runScenario 
+2024-05-04 13:10:03,870 INFO  [MyLogClass] SCENARIO : 'E2E Testing' - is started 2024-05-04T13:10:03.870779 
+2024-05-04 13:10:04,165 INFO  [WebDriverManager] Using chromedriver 124.0.6367.91 (resolved driver for Chrome 124) 
+2024-05-04 13:10:04,191 INFO  [WebDriverManager] Exporting webdriver.chrome.driver as C:\Users\pc\.cache\selenium\chromedriver\win64\124.0.6367.91\chromedriver.exe 
+2024-05-04 13:10:09,897 INFO  [MyLogClass] The entry process was done. 
+2024-05-04 13:10:25,541 INFO  [MyLogClass] Success Cart is empty 
+2024-05-04 13:10:25,637 INFO  [MyLogClass] SCENARIO : E2E Testing - is over 
+2024-05-04 13:10:25,644 INFO  [MyLogClass] Test successful: runScenario 
+2024-05-04 13:10:26,463 INFO  [MyLogClass] Test finished : Surefire test 
+2024-05-04 13:12:03,830 INFO  [MyLogClass] Test started : runScenario 
+2024-05-04 13:12:03,923 INFO  [MyLogClass] SCENARIO : 'E2E Testing' - is started 2024-05-04T13:12:03.922490400 
+2024-05-04 13:12:04,183 INFO  [WebDriverManager] Using chromedriver 124.0.6367.91 (resolved driver for Chrome 124) 
+2024-05-04 13:12:04,215 INFO  [WebDriverManager] Exporting webdriver.chrome.driver as C:\Users\pc\.cache\selenium\chromedriver\win64\124.0.6367.91\chromedriver.exe 
+2024-05-04 13:12:11,965 INFO  [MyLogClass] The entry process was done. 
+2024-05-04 13:12:27,412 INFO  [MyLogClass] Success Cart is empty 
+2024-05-04 13:12:27,515 INFO  [MyLogClass] SCENARIO : E2E Testing - is over 
+2024-05-04 13:12:27,520 INFO  [MyLogClass] Test successful: runScenario 
+2024-05-04 13:12:28,367 INFO  [MyLogClass] Test finished : Surefire test 
+2024-05-04 13:18:41,422 INFO  [MyLogClass] SCENARIO : 'E2E Testing' - is started 2024-05-04T13:18:41.421788 
+2024-05-04 13:18:41,724 INFO  [WebDriverManager] Using chromedriver 124.0.6367.91 (resolved driver for Chrome 124) 
+2024-05-04 13:18:41,751 INFO  [WebDriverManager] Exporting webdriver.chrome.driver as C:\Users\pc\.cache\selenium\chromedriver\win64\124.0.6367.91\chromedriver.exe 
+2024-05-04 13:18:47,968 INFO  [MyLogClass] The entry process was done. 
+2024-05-04 13:19:03,650 INFO  [MyLogClass] Success Cart is empty 
+2024-05-04 13:19:03,761 INFO  [MyLogClass] SCENARIO : E2E Testing - is over 
+2024-05-04 13:25:25,427 INFO  [MyLogClass] SCENARIO : 'E2E Testing' - is started 2024-05-04T13:25:25.426352100 
+2024-05-04 13:25:26,240 INFO  [WebDriverManager] Using chromedriver 124.0.6367.91 (resolved driver for Chrome 124) 
+2024-05-04 13:25:26,266 INFO  [WebDriverManager] Exporting webdriver.chrome.driver as C:\Users\pc\.cache\selenium\chromedriver\win64\124.0.6367.91\chromedriver.exe 
+2024-05-04 13:25:33,229 INFO  [MyLogClass] The entry process was done. 
+2024-05-04 13:25:48,846 INFO  [MyLogClass] Success Cart is empty 
+2024-05-04 13:25:48,957 INFO  [MyLogClass] SCENARIO : E2E Testing - is over 
+2024-05-04 14:28:31,036 INFO  [Utils] [TestNG] Running:
+  C:\Users\pc\AppData\Local\JetBrains\IdeaIC2023.1\temp-testng-customsuite.xml
+ 
+2024-05-04 14:28:31,627 INFO  [MyLogClass] Test started : runScenario 
+2024-05-04 14:28:31,736 INFO  [MyLogClass] SCENARIO : 'E2E Testing' - is started 2024-05-04T14:28:31.735934300 
+2024-05-04 14:28:32,611 INFO  [WebDriverManager] Using chromedriver 124.0.6367.91 (resolved driver for Chrome 124) 
+2024-05-04 14:28:32,632 INFO  [WebDriverManager] Exporting webdriver.chrome.driver as C:\Users\pc\.cache\selenium\chromedriver\win64\124.0.6367.91\chromedriver.exe 
+2024-05-04 14:28:34,944 ERROR [MyLogClass] SCENARIO : E2E Testing - is FAILED 
+2024-05-04 14:28:34,970 ERROR [MyLogClass] Test unsuccessful: runScenario 
+2024-05-04 14:28:36,112 INFO  [MyLogClass] Test finished : com.LeeTask 
+2024-05-04 14:31:26,615 INFO  [MyLogClass] SCENARIO : 'E2E Testing' - is started 2024-05-04T14:31:26.614995600 
+2024-05-04 14:31:26,863 INFO  [WebDriverManager] Using chromedriver 124.0.6367.91 (resolved driver for Chrome 124) 
+2024-05-04 14:31:26,886 INFO  [WebDriverManager] Exporting webdriver.chrome.driver as C:\Users\pc\.cache\selenium\chromedriver\win64\124.0.6367.91\chromedriver.exe 
+2024-05-04 14:31:32,360 INFO  [MyLogClass] The entry process was done. 
+2024-05-04 14:31:47,937 INFO  [MyLogClass] Success Cart is empty 
+2024-05-04 14:31:48,038 INFO  [MyLogClass] SCENARIO : E2E Testing - is over 
+2024-05-04 14:32:06,022 INFO  [MyLogClass] SCENARIO : 'E2E Testing' - is started 2024-05-04T14:32:06.022786900 
+2024-05-04 14:32:06,268 INFO  [WebDriverManager] Using chromedriver 124.0.6367.91 (resolved driver for Chrome 124) 
+2024-05-04 14:32:06,294 INFO  [WebDriverManager] Exporting webdriver.chrome.driver as C:\Users\pc\.cache\selenium\chromedriver\win64\124.0.6367.91\chromedriver.exe 
+2024-05-04 14:32:11,768 INFO  [MyLogClass] The entry process was done. 
+2024-05-04 14:32:27,300 INFO  [MyLogClass] Success Cart is empty 
+2024-05-04 14:32:27,392 INFO  [MyLogClass] SCENARIO : E2E Testing - is over 
+2024-05-04 14:33:21,474 INFO  [MyLogClass] SCENARIO : 'E2E Testing' - is started 2024-05-04T14:33:21.474168900 
+2024-05-04 14:33:21,729 INFO  [WebDriverManager] Using chromedriver 124.0.6367.91 (resolved driver for Chrome 124) 
+2024-05-04 14:33:21,776 INFO  [WebDriverManager] Exporting webdriver.chrome.driver as C:\Users\pc\.cache\selenium\chromedriver\win64\124.0.6367.91\chromedriver.exe 
+2024-05-04 14:33:27,144 INFO  [MyLogClass] The entry process was done. 
+2024-05-04 14:33:42,657 INFO  [MyLogClass] Success Cart is empty 
+2024-05-04 14:33:42,752 INFO  [MyLogClass] SCENARIO : E2E Testing - is over 
+2024-05-04 14:39:46,713 INFO  [Utils] [TestNG] Running:
+  C:\Users\pc\AppData\Local\JetBrains\IdeaIC2023.1\temp-testng-customsuite.xml
+ 
+2024-05-04 14:39:47,298 INFO  [MyLogClass] Test started : runScenario 
+2024-05-04 14:39:47,400 INFO  [MyLogClass] SCENARIO : 'E2E Testing' - is started 2024-05-04T14:39:47.399567800 
+2024-05-04 14:39:47,744 INFO  [WebDriverManager] Using chromedriver 124.0.6367.91 (resolved driver for Chrome 124) 
+2024-05-04 14:39:47,782 INFO  [WebDriverManager] Exporting webdriver.chrome.driver as C:\Users\pc\.cache\selenium\chromedriver\win64\124.0.6367.91\chromedriver.exe 
+2024-05-04 14:39:50,480 ERROR [MyLogClass] SCENARIO : E2E Testing - is FAILED 
+2024-05-04 14:39:50,496 ERROR [MyLogClass] Test unsuccessful: runScenario 
+2024-05-04 14:39:51,953 INFO  [MyLogClass] Test finished : com.LeeTask 
+2024-05-04 14:40:01,122 INFO  [MyLogClass] SCENARIO : 'E2E Testing' - is started 2024-05-04T14:40:01.121088200 
+2024-05-04 14:40:01,360 INFO  [WebDriverManager] Using chromedriver 124.0.6367.91 (resolved driver for Chrome 124) 
+2024-05-04 14:40:01,389 INFO  [WebDriverManager] Exporting webdriver.chrome.driver as C:\Users\pc\.cache\selenium\chromedriver\win64\124.0.6367.91\chromedriver.exe 
+2024-05-04 14:40:11,974 INFO  [MyLogClass] The entry process was done. 
+2024-05-04 14:40:27,637 INFO  [MyLogClass] Success Cart is empty 
+2024-05-04 14:40:27,738 INFO  [MyLogClass] SCENARIO : E2E Testing - is over 
+2024-05-04 14:44:47,499 INFO  [MyLogClass] SCENARIO : 'E2E Testing' - is started 2024-05-04T14:44:47.499229500 
+2024-05-04 14:44:47,814 INFO  [WebDriverManager] Using chromedriver 124.0.6367.91 (resolved driver for Chrome 124) 
+2024-05-04 14:44:47,853 INFO  [WebDriverManager] Exporting webdriver.chrome.driver as C:\Users\pc\.cache\selenium\chromedriver\win64\124.0.6367.91\chromedriver.exe 
+2024-05-04 14:44:53,578 INFO  [MyLogClass] The entry process was done. 
+2024-05-04 14:45:09,102 INFO  [MyLogClass] Success Cart is empty 
+2024-05-04 14:45:09,202 INFO  [MyLogClass] SCENARIO : E2E Testing - is over 
+2024-05-04 14:46:29,797 INFO  [MyLogClass] SCENARIO : 'E2E Testing' - is started 2024-05-04T14:46:29.797351900 
+2024-05-04 14:46:30,032 INFO  [WebDriverManager] Using chromedriver 124.0.6367.91 (resolved driver for Chrome 124) 
+2024-05-04 14:46:30,052 INFO  [WebDriverManager] Exporting webdriver.chrome.driver as C:\Users\pc\.cache\selenium\chromedriver\win64\124.0.6367.91\chromedriver.exe 
+2024-05-04 14:46:35,764 INFO  [MyLogClass] The entry process was done. 
+2024-05-04 14:46:51,294 INFO  [MyLogClass] Success Cart is empty 
+2024-05-04 14:46:51,386 INFO  [MyLogClass] SCENARIO : E2E Testing - is over 
+2024-05-04 15:19:24,520 INFO  [MyLogClass] SCENARIO : 'E2E Testing' - is started 2024-05-04T15:19:24.520167300 
+2024-05-04 15:19:24,765 INFO  [WebDriverManager] Using chromedriver 124.0.6367.91 (resolved driver for Chrome 124) 
+2024-05-04 15:19:24,794 INFO  [WebDriverManager] Exporting webdriver.chrome.driver as C:\Users\pc\.cache\selenium\chromedriver\win64\124.0.6367.91\chromedriver.exe 
+2024-05-04 15:19:30,569 INFO  [MyLogClass] The entry process was done. 
+2024-05-04 15:19:46,119 INFO  [MyLogClass] Success Cart is empty 
+2024-05-04 15:19:46,219 INFO  [MyLogClass] SCENARIO : E2E Testing - is over 
+2024-05-04 15:22:00,633 INFO  [MyLogClass] SCENARIO : 'E2E Testing' - is started 2024-05-04T15:22:00.633995500 
+2024-05-04 15:22:00,856 INFO  [WebDriverManager] Using chromedriver 124.0.6367.91 (resolved driver for Chrome 124) 
+2024-05-04 15:22:00,888 INFO  [WebDriverManager] Exporting webdriver.chrome.driver as C:\Users\pc\.cache\selenium\chromedriver\win64\124.0.6367.91\chromedriver.exe 
+2024-05-04 15:22:07,007 INFO  [MyLogClass] The entry process was done. 
+2024-05-04 15:22:22,594 INFO  [MyLogClass] Success Cart is empty 
+2024-05-04 15:22:22,705 INFO  [MyLogClass] SCENARIO : E2E Testing - is over 
+2024-05-04 15:24:51,687 INFO  [MyLogClass] SCENARIO : 'E2E Testing' - is started 2024-05-04T15:24:51.687945 
+2024-05-04 15:24:51,933 INFO  [WebDriverManager] Using chromedriver 124.0.6367.91 (resolved driver for Chrome 124) 
+2024-05-04 15:24:51,960 INFO  [WebDriverManager] Exporting webdriver.chrome.driver as C:\Users\pc\.cache\selenium\chromedriver\win64\124.0.6367.91\chromedriver.exe 
+2024-05-04 15:24:58,330 INFO  [MyLogClass] The entry process was done. 
+2024-05-04 15:25:13,862 INFO  [MyLogClass] Success Cart is empty 
+2024-05-04 15:25:13,963 INFO  [MyLogClass] SCENARIO : E2E Testing - is over 
+2024-05-04 15:27:11,362 INFO  [MyLogClass] SCENARIO : 'E2E Testing' - is started 2024-05-04T15:27:11.362383100 
+2024-05-04 15:27:11,607 INFO  [WebDriverManager] Using chromedriver 124.0.6367.91 (resolved driver for Chrome 124) 
+2024-05-04 15:27:11,656 INFO  [WebDriverManager] Exporting webdriver.chrome.driver as C:\Users\pc\.cache\selenium\chromedriver\win64\124.0.6367.91\chromedriver.exe 
+2024-05-04 15:27:17,684 INFO  [MyLogClass] The entry process was done. 
+2024-05-04 15:27:33,252 INFO  [MyLogClass] Success Cart is empty 
+2024-05-04 15:27:33,379 INFO  [MyLogClass] SCENARIO : E2E Testing - is over 
+2024-05-04 15:29:15,956 INFO  [MyLogClass] SCENARIO : 'E2E Testing' - is started 2024-05-04T15:29:15.956685800 
+2024-05-04 15:29:16,627 INFO  [WebDriverManager] Using chromedriver 124.0.6367.91 (resolved driver for Chrome 124) 
+2024-05-04 15:29:16,655 INFO  [WebDriverManager] Exporting webdriver.chrome.driver as C:\Users\pc\.cache\selenium\chromedriver\win64\124.0.6367.91\chromedriver.exe 
+2024-05-04 15:29:24,985 INFO  [MyLogClass] The entry process was done. 
+2024-05-04 15:29:40,540 INFO  [MyLogClass] Success Cart is empty 
+2024-05-04 15:29:40,661 INFO  [MyLogClass] SCENARIO : E2E Testing - is over 
+2024-05-04 15:37:07,765 INFO  [MyLogClass] SCENARIO : 'E2E Testing' - is started 2024-05-04T15:37:07.764107700 
+2024-05-04 15:37:08,017 INFO  [WebDriverManager] Using chromedriver 124.0.6367.91 (resolved driver for Chrome 124) 
+2024-05-04 15:37:08,047 INFO  [WebDriverManager] Exporting webdriver.chrome.driver as C:\Users\pc\.cache\selenium\chromedriver\win64\124.0.6367.91\chromedriver.exe 
+2024-05-04 15:37:14,886 INFO  [MyLogClass] The entry process was done. 
+2024-05-04 15:37:30,458 INFO  [MyLogClass] Success Cart is empty 
+2024-05-04 15:37:30,558 INFO  [MyLogClass] SCENARIO : E2E Testing - is over 
+2024-05-04 15:41:16,273 WARN  [Utils] The test method 'io.cucumber.testng.AbstractTestNGCucumberTests.runScenario' will be skipped since its data provider 'scenarios' returned an empty array or iterator.  
+2024-05-04 15:41:16,312 INFO  [MyLogClass] Test finished : Surefire test 
+2024-05-04 15:42:13,824 INFO  [MyLogClass] Test started : runScenario 
+2024-05-04 15:42:13,914 INFO  [MyLogClass] SCENARIO : 'E2E Testing' - is started 2024-05-04T15:42:13.914037500 
+2024-05-04 15:42:14,142 INFO  [WebDriverManager] Using chromedriver 124.0.6367.91 (resolved driver for Chrome 124) 
+2024-05-04 15:42:14,168 INFO  [WebDriverManager] Exporting webdriver.chrome.driver as C:\Users\pc\.cache\selenium\chromedriver\win64\124.0.6367.91\chromedriver.exe 
+2024-05-04 15:42:21,546 INFO  [MyLogClass] The entry process was done. 
+2024-05-04 15:42:37,088 INFO  [MyLogClass] Success Cart is empty 
+2024-05-04 15:42:37,199 INFO  [MyLogClass] SCENARIO : E2E Testing - is over 
+2024-05-04 15:42:37,204 INFO  [MyLogClass] Test successful: runScenario 
+2024-05-04 15:42:37,298 INFO  [MyLogClass] Test finished : Surefire test 
