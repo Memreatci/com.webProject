@@ -24,9 +24,9 @@ pipeline {
         stage('Send Test Results') {
             steps {
                 script {
-                    def reportFile = findFiles(glob: '**/target/cucumber-reports/*.json').first()
+                    def reportFile = findFiles(glob: '**/target/cucumber-html-reports/*.html').first()
                     if (reportFile != null) {
-                        emailext attachmentsPattern: "**/target/cucumber-reports/*.json",
+                        emailext attachmentsPattern: "**/target/cucumber-html-reports/*.html",
                                  subject: 'Test Results',
                                  body: 'Please find attached the test results.',
                                  to: '35test42@gmail.com'
