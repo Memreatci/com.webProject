@@ -18,7 +18,7 @@ pipeline {
                 bat 'mvn clean test'
 
                 // Cucumber test raporlarını tarama (eğer varsa)
-                junit 'target/cucumber-html-reports/*.html'
+                  cucumber '**/target/cucumber-html-reports/*.html'
 
 
             }
@@ -30,7 +30,7 @@ pipeline {
 
 
             // Cucumber test sonuç raporlarını tarama
-            junit 'target/cucumber-html-reports/*.html'
+            cucumber '**/target/cucumber-html-reports/*.html'
 
             // E-posta gönderimi
             script {
