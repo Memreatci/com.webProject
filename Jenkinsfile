@@ -16,35 +16,29 @@ pipeline {
         stage('Build and Test') {
             steps {
 
-                bat 'mvn clean test'
-                bat 'cucumber --format json -o target/cucumber.json'
+                 bat 'mvn clean test -Dcucumber.plugin=pretty,json:target/cucumber-reports/Cucumber.json'
 
             }
         }
     }
 
-   post {
-       always {
-           publishCucumberReports(fileIncludePattern: 'target/cucumber.json')
+    post {
+           success {
+               mail(
+                   to: '35test42@gmail.com',
+                   subject: "Jenkins: Successful Build - ${env.JOB_NAME}",
+                   body: "Build Successful Cucumber report attached",
+                   attachmentsPattern: 'target/cucumber-reports/Cucumber.json'
+               )
+           }
 
-           // E-posta gönderimi
-           script {
-               if (currentBuild.result == 'SUCCESS') {
-                   emailext(
-                       to: '35test42@gmail.com',
-                       subject: 'The tests were successfully completed.',
-                       body: 'Test Results - Error Free',
-                       attachLog: true,
-                   )
-               } else if (currentBuild.result == 'FAILURE') {
-                   emailext(
-                       to: '35test42@gmail.com',
-                       subject: 'There was an error in the tests, please check.',
-                       body: 'Tests failed',
-                       attachLog: true,
-                   )
-               }
+           failure {
+               mail(
+                   to: '35test42@gmail.com',
+                   subject: "Jenkins: Failed Build - ${env.JOB_NAME}",
+                   body: "Build Failed. Cucumber report attached",
+                   attachmentsPattern: 'target/cucumber-reports/Cucumber.json'
+               )
            }
        }
-   }
 }
