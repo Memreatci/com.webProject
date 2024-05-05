@@ -10,13 +10,13 @@ pipeline {
 
         stage('Dependencies') {
             steps {
-                sh 'mvn install'
+                bat 'mvn install'
             }
         }
 
         stage('Execute Tests') {
             steps {
-                sh 'mvn verify -Dcucumber.options="--tags=$env.TAGS"'
+                bat 'mvn verify -Dcucumber.options="--tags=$env.TAGS"'
             }
         }
 
@@ -26,7 +26,7 @@ pipeline {
                     def reportDir = 'target/cucumber-html-reports'
                     def reportFile = "${reportDir}/${env.BUILD_ID}/cucumber-report.html"
 
-                    def isBuildSuccess = sh(
+                    def isBuildSuccess = bat(
                         script: 'return $?',
                         returnStdout: true).trim() == '0'
 
