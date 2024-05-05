@@ -1,11 +1,6 @@
 pipeline {
     agent any
 
-    environment {
-        MAVEN_HOME = tool 'Maven'
-        JAVA_HOME = tool 'Java'
-    }
-
     stages {
         stage('Checkout') {
             steps {
@@ -13,32 +8,49 @@ pipeline {
             }
         }
 
-        stage('Build and Test') {
+        stage('Dependencies') {
             steps {
+                sh 'mvn install'
+            }
+        }
 
-                 bat 'mvn clean test -Dcucumber.plugin=pretty,json:target/cucumber-reports/Cucumber.json'
+        stage('Execute Tests') {
+            steps {
+                sh 'mvn verify -Dcucumber.options="--tags=$env.TAGS"'
+            }
+        }
 
+        stage('Send Report') {
+            steps {
+                script {
+                    def reportDir = 'target/cucumber-html-reports'
+                    def reportFile = "${reportDir}/${env.BUILD_ID}/cucumber-report.html"
+
+                    def isBuildSuccess = sh(
+                        script: 'return $?',
+                        returnStdout: true).trim() == '0'
+
+                    if (isBuildSuccess) {
+                        println "Tests successful"
+                        emaildata = [
+                            to: '35test42@gmail.com',
+                            subject: "Cucumber Test Report - Successful (${env.BUILD_NUMBER})",
+                            body: "Hello,\n\nCucumber tests successful completed. Click the report link: \nhttps://cucumber.io/docs/cucumber/reporting/(${reportFile})\n\nSaygılarımızla,\nJenkins",
+                            charset: 'UTF-8'
+                        ]
+                        sendMail emaildata
+                    } else {
+                        println "Tests Failed"
+                        emaildata = [
+                            to: '335test42.gmail.com',
+                            subject: "Cucumber Test Report - Failed (${env.BUILD_NUMBER})",
+                            body: "Hello,\n\nCucumber tests ended in failure. Click the report link: \nhttps://cucumber.io/docs/cucumber/reporting/(${reportFile})\n\nSaygılarımızla,\nJenkins",
+                            charset: 'UTF-8'
+                        ]
+                        sendMail emaildata
+                    }
+                }
             }
         }
     }
-
-   post {
-          always {
-              // Rapor dosyasını sıkıştırma
-              bat 'powershell -Command "Compress-Archive -Path \'target/cucumber-reports/Cucumber.json\' -DestinationPath \'target/cucumber-reports.zip\'"'
-
-              // Başarılı veya başarısız sonuç durumunda e-posta gönderme
-              script {
-                  def emailSubject = currentBuild.result == 'SUCCESS' ? 'Başarılı Build' : 'Başarısız Build'
-                  def emailBody = currentBuild.result == 'SUCCESS' ? 'Build başarılı. Cucumber raporunu ekte bulabilirsiniz.' : 'Build başarısız. Cucumber raporunu ekte bulabilirsiniz.'
-
-                  mail (
-                      to: 'email@ornek.com',
-                      subject: "Jenkins: ${emailSubject} - ${env.JOB_NAME}",
-                      body: emailBody,
-                      attachments: 'target/cucumber-reports.zip' // Ek dosya yolu
-                  )
-              }
-          }
-      }
 }
