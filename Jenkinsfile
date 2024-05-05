@@ -22,35 +22,23 @@ pipeline {
         }
     }
 
-     post {
-           always {
-               // Rapor dosyasını sıkıştırma
-               bat 'powershell -Command "Compress-Archive -Path \'target/cucumber-reports/Cucumber.json\' -DestinationPath \'target/cucumber-reports.zip\'"'
+   post {
+          always {
+              // Rapor dosyasını sıkıştırma
+              bat 'powershell -Command "Compress-Archive -Path \'target/cucumber-reports/Cucumber.json\' -DestinationPath \'target/cucumber-reports.zip\'"'
 
-               // Başarılı veya başarısız sonuç durumunda e-posta gönderme
-               script {
-                   def emailSubject = currentBuild.result == 'SUCCESS' ? 'Başarılı Build' : 'Başarısız Build'
-                   def emailBody = currentBuild.result == 'SUCCESS' ? 'Build başarılı. Cucumber raporunu ekte bulabilirsiniz.' : 'Build başarısız. Cucumber raporunu ekte bulabilirsiniz.'
+              // Başarılı veya başarısız sonuç durumunda e-posta gönderme
+              script {
+                  def emailSubject = currentBuild.result == 'SUCCESS' ? 'Başarılı Build' : 'Başarısız Build'
+                  def emailBody = currentBuild.result == 'SUCCESS' ? 'Build başarılı. Cucumber raporunu ekte bulabilirsiniz.' : 'Build başarısız. Cucumber raporunu ekte bulabilirsiniz.'
 
-                   mail (
-                       to: 'email@ornek.com',
-                       subject: "Jenkins: ${emailSubject} - ${env.JOB_NAME}",
-                       body: emailBody,
-                       mimeType: 'multipart/mixed',
-                       attachLog: false // Build logunu ekleme
-                   )
-               }
-
-               // Zip dosyasını e-posta ek dosyası olarak gönderme
-               bat 'powershell -Command "Compress-Archive -Path \'target/cucumber-reports.zip\' -DestinationPath \'target/cucumber-reports.zip\'"'
-
-               mail (
-                   to: 'email@ornek.com',
-                   subject: "Jenkins: ${currentBuild.result} - ${env.JOB_NAME}",
-                   body: "Cucumber raporu ektedir.",
-                   attachments: 'target/cucumber-reports.zip',
-                   mimeType: 'application/zip'
-               )
-           }
-       }
+                  mail (
+                      to: 'email@ornek.com',
+                      subject: "Jenkins: ${emailSubject} - ${env.JOB_NAME}",
+                      body: emailBody,
+                      attachments: 'target/cucumber-reports.zip' // Ek dosya yolu
+                  )
+              }
+          }
+      }
 }
