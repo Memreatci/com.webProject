@@ -8,19 +8,14 @@ pipeline {
             }
         }
 
-        stage('Dependencies') {
-            steps {
-                bat 'mvn install'
-            }
-        }
-
         stage('Execute Tests') {
             steps {
                 script {
-                    bat '''
-                        mvn verify -Dcucumber.options="--tags=$env.TAGS"
-                        exit $?
-                    '''
+                    // Tests run
+                    def mvnResult = bat(script: 'mvn verify -Dcucumber.options="--tags=$env.TAGS"', returnStatus: true)
+
+                    // Test result evaluation
+                    isBuildSuccess = mvnResult == 0
                 }
             }
         }
@@ -31,29 +26,24 @@ pipeline {
                     def reportDir = 'target/cucumber-html-reports'
                     def reportFile = "${reportDir}/${env.BUILD_ID}/cucumber-report.html"
 
-                    def isBuildSuccess = bat(
-                        script: 'return $?',
-                        returnStdout: true).trim() == '0'
-
+                    def emaildata
                     if (isBuildSuccess) {
-                        println "Tests successful"
                         emaildata = [
                             to: '35test42@gmail.com',
                             subject: "Cucumber Test Report - Successful (${env.BUILD_NUMBER})",
-                            body: "Hello,\n\nCucumber tests successful completed. Click the report link: \nhttps://cucumber.io/docs/cucumber/reporting/(${reportFile})\n\nSaygılarımızla,\nJenkins",
+                            body: "Hello,\n\nCucumber tests successfully completed. Click the report link: \nhttps://cucumber.io/docs/cucumber/reporting/(${reportFile})\n\nRegards,\nJenkins",
                             charset: 'UTF-8'
                         ]
-                        sendMail emaildata
                     } else {
-                        println "Tests Failed"
                         emaildata = [
-                            to: '335test42.gmail.com',
+                            to: '35test42@gmail.com',
                             subject: "Cucumber Test Report - Failed (${env.BUILD_NUMBER})",
-                            body: "Hello,\n\nCucumber tests ended in failure. Click the report link: \nhttps://cucumber.io/docs/cucumber/reporting/(${reportFile})\n\nSaygılarımızla,\nJenkins",
+                            body: "Hello,\n\nCucumber tests ended in failure. Click the report link: \nhttps://cucumber.io/docs/cucumber/reporting/(${reportFile})\n\nRegards,\nJenkins",
                             charset: 'UTF-8'
                         ]
-                        sendMail emaildata
                     }
+                    // Send email with the report
+                    sendMail(emaildata)
                 }
             }
         }
