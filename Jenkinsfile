@@ -22,23 +22,37 @@ pipeline {
         }
     }
 
-    post {
-           success {
-               mail(
-                   to: '35test42@gmail.com',
-                   subject: "Jenkins: Successful Build - ${env.JOB_NAME}",
-                   body: "Build Successful Cucumber report attached",
-                   attachments: 'target/cucumber-reports/Cucumber.json'
-               )
-           }
+   post {
+          success {
+              // Başarılı build durumunda e-posta gönderme
+              script {
+                  // Rapor dosyasını zip dosyasına sıkıştırma
+                  bat 'powershell -Command "Compress-Archive -Path \'target/cucumber-reports/Cucumber.json\' -DestinationPath \'target/cucumber-reports.zip\'"'
 
-           failure {
-               mail(
-                   to: '35test42@gmail.com',
-                   subject: "Jenkins: Failed Build - ${env.JOB_NAME}",
-                   body: "Build Failed. Cucumber report attached",
-                   attachments: 'target/cucumber-reports/Cucumber.json'
-               )
-           }
-       }
+                  // E-postayı gönderme
+                  mail(
+                      to: 'email@ornek.com',
+                      subject: "Jenkins: Başarılı Build - ${env.JOB_NAME}",
+                      body: "Build başarılı. Cucumber raporunu ekte bulabilirsiniz.",
+                      attachmentsPattern: 'target/cucumber-reports.zip'
+                  )
+              }
+          }
+
+          failure {
+              // Başarısız build durumunda e-posta gönderme
+              script {
+                  // Rapor dosyasını zip dosyasına sıkıştırma
+                  bat 'powershell -Command "Compress-Archive -Path \'target/cucumber-reports/Cucumber.json\' -DestinationPath \'target/cucumber-reports.zip\'"'
+
+                  // E-postayı gönderme
+                  mail(
+                      to: 'email@ornek.com',
+                      subject: "Jenkins: Başarısız Build - ${env.JOB_NAME}",
+                      body: "Build başarısız. Cucumber raporunu ekte bulabilirsiniz.",
+                      attachmentsPattern: 'target/cucumber-reports.zip'
+                  )
+              }
+          }
+      }
 }
