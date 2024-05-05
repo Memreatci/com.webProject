@@ -16,7 +16,12 @@ pipeline {
 
         stage('Execute Tests') {
             steps {
-                bat 'mvn verify -Dcucumber.options="--tags=$env.TAGS"'
+                script {
+                    bat '''
+                        mvn verify -Dcucumber.options="--tags=$env.TAGS"
+                        exit $?
+                    '''
+                }
             }
         }
 
