@@ -28,7 +28,7 @@ pipeline {
                    to: '35test42@gmail.com',
                    subject: "Jenkins: Successful Build - ${env.JOB_NAME}",
                    body: "Build Successful Cucumber report attached",
-                   attachmentsPattern: 'target/cucumber-reports/Cucumber.json'
+                   attachments: 'target/cucumber-reports/Cucumber.json'
                )
            }
 
@@ -37,7 +37,7 @@ pipeline {
                    to: '35test42@gmail.com',
                    subject: "Jenkins: Failed Build - ${env.JOB_NAME}",
                    body: "Build Failed. Cucumber report attached",
-                   attachmentsPattern: 'target/cucumber-reports/Cucumber.json'
+                   attachments: 'target/cucumber-reports/Cucumber.json'
                )
            }
        }
