@@ -23,7 +23,8 @@ pipeline {
         stage('Create Zip Report') {
             steps {
                 script {
-                    def zip = archiveArtifacts artifacts: 'target/cucumber-html-reports/*.html', format: 'zip', archiveType: 'zip'
+                    // Archive artifacts using the correct syntax
+                    archiveArtifacts artifacts: 'target/cucumber-html-reports/*.html', fingerprint: true
                 }
             }
         }
@@ -31,7 +32,11 @@ pipeline {
         stage('Send Report') {
             steps {
                 script {
-                    def attachedFile = zip.fingerprint.expand(env.BUILD_ID) + '.zip'
+                    // Access the archived artifacts using 'fingerprint'
+                    def zipFile = artifacts fingerprint: 'archiveArtifacts'
+
+                    // Construct the attachment filename
+                    def attachedFile = zipFile.fileName
 
                     // Email sending logic with the zip attachment
                     mail to: '35test42@gmail.com',
