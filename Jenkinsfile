@@ -25,7 +25,8 @@ pipeline {
                 script {
 
                     def htmlFiles = findFiles(glob: '**/target/cucumber-html-reports/*.html')
-                    if (htmlFiles.isEmpty()) {
+
+                    if (htmlFiles.length == 0) {
                         error('Hata: Belirtilen konumda HTML dosyası bulunamadı.')
                     } else {
                         def firstHtmlFile = htmlFiles.first()
