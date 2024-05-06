@@ -32,7 +32,7 @@ pipeline {
         stage('Send Report') {
             steps {
                 script {
-                    // Access the archived artifacts using 'fingerprint'
+                    // Access the archived artifact using 'fingerprint'
                     def zipFile = artifacts fingerprint: 'archiveArtifacts'
 
                     // Construct the attachment filename
@@ -50,6 +50,5 @@ pipeline {
         }
     }
 }
-
 
 
