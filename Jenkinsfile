@@ -20,35 +20,31 @@ pipeline {
             }
         }
 
-        stage('Create Zip Report') {
-            steps {
-                script {
-                    // Archive artifacts using the correct syntax
-                    archiveArtifacts artifacts: 'target/cucumber-html-reports/*.html', fingerprint: true
-                }
-            }
-        }
-
         stage('Send Report') {
             steps {
                 script {
-                    // Access the archived artifact using 'fingerprint'
-                    def zipFile = artifacts fingerprint: 'archiveArtifacts'
 
-                    // Construct the attachment filename
-                    def attachedFile = zipFile.fileName
+                    def htmlFiles = findFiles(glob: '**/target/cucumber-html-reports/*.html')
 
-                    // Email sending logic with the zip attachment
-                    mail to: '35test42@gmail.com',
-                         subject: isBuildSuccess ? "Cucumber Test Report - Successful (${env.BUILD_NUMBER})" :
-                                                   "Cucumber Test Report - Failed (${env.BUILD_NUMBER})",
-                         body: isBuildSuccess ? "Hello,\n\nCucumber tests successful completed. Attached is the report.\n\nBest Regards,\nJenkins" :
-                                                 "Hello,\n\nCucumber tests Failed. Attached is the report.\n\nBest Regards,\nJenkins",
-                         attachFile: attachedFile
+                     def firstHtmlFile = null
+
+                    if (htmlFiles.length == 0) {
+                        error('Hata: Belirtilen konumda HTML dosyası bulunamadı.')
+                    } else {
+                        firstHtmlFile = htmlFiles.first()
+                        println "Bulunan ilk HTML dosyası: ${firstHtmlFile.path}"
+                    }
+
+                     def emailSubject = isBuildSuccess ? "Cucumber Test Report - Successful (${env.BUILD_NUMBER})" :
+                                                          "Cucumber Test Report - Failed (${env.BUILD_NUMBER})"
+                     def emailBody = isBuildSuccess ? "Hello,\n\nCucumber tests successful completed. Report link: \n${firstHtmlFile.path}\n\nBest Regards,\nJenkins" :
+                                                      "Hello,\n\nCucumber tests Failed. Report link: \n${firstHtmlFile.path}\n\nBest Regards,\nJenkins"
+
+                     mail to      :'35test42@gmail.com',
+                          subject : emailSubject,
+                          body    : emailBody
                 }
             }
         }
     }
 }
-
-
