@@ -35,19 +35,21 @@ pipeline {
 
                     }
 
+                    def screenshotFiles = findFiles(glob: '**/target/Screenshots/*.png')
+                    def screenshotPaths = screenshotFiles.collect { file -> file.path }
+
                      def emailSubject = isBuildSuccess ? "Cucumber Test Report - Successful (${env.BUILD_NUMBER})" :
                                                           "Cucumber Test Report - Failed (${env.BUILD_NUMBER})"
-                     def emailBody = isBuildSuccess ? "Hello,\n\nCucumber tests successful completed. Report link: \n${firstHtmlFile.path}\n\nBest Regards,\nJenkins" :
-                                                      "Hello,\n\nCucumber tests Failed. Report link: \n${firstHtmlFile.path}\n\nBest Regards,\nJenkins"
+                     def emailBody = isBuildSuccess ? "Hello,\n\nCucumber tests successful completed. Report link: \n${firstHtmlFile.path}\n \n${screenshotPaths.join('\n')}\n \nBest Regards,\nJenkins" :
+                                                      "Hello,\n\nCucumber tests Failed. Report link: \n${firstHtmlFile.path}\n \n${screenshotPaths.join('\n')}\n  \nBest Regards,\nJenkins"
 
 
-                     def screenshotFiles = findFiles(glob: '**/target/Screenshots/*.png')
 
 
                      mail to      :'35test42@gmail.com',
                           subject : emailSubject,
                           body    : emailBody
-                          attachments: screenshotFiles.collect { file -> file.path }
+
                 }
             }
         }
