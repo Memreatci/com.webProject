@@ -24,8 +24,7 @@ pipeline {
             steps {
                 script {
 
-                     def reportDir = 'target/cucumber-html-reports'
-                     def reportFile = "${reportDir}/overview-tags.html"
+                     def reportFile = findFiles(glob: '**/target/cucumber-html-reports/*.html').first()
 
                      def emailSubject = isBuildSuccess ? "Cucumber Test Report - Successful (${env.BUILD_NUMBER})" :
                                                           "Cucumber Test Report - Failed (${env.BUILD_NUMBER})"
