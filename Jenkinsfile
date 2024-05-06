@@ -33,9 +33,9 @@ pipeline {
                         println "Bulunan ilk HTML dosyası: ${firstHtmlFile.path}"
                     }
 
-                     def emailSubject = isBuildSuccess ? "Cucumber Test Report - Successful (${env.BUILD_NUMBER})" :
+                     def emailSubject = isBuildSuccess ? "Cucumber Test Report - Successful (${firstHtmlFile.path})" :
                                                           "Cucumber Test Report - Failed (${env.BUILD_NUMBER})"
-                     def emailBody = isBuildSuccess ? "Hello,\n\nCucumber tests successful completed. Report link: \n${firstHtmlFile}\n\nBest Regards,\nJenkins" :
+                     def emailBody = isBuildSuccess ? "Hello,\n\nCucumber tests successful completed. Report link: \n${firstHtmlFile.path}\n\nBest Regards,\nJenkins" :
                                                       "Hello,\n\nCucumber tests Failed. Report link: \n${firstHtmlFile}\n\nBest Regards,\nJenkins"
 
                      mail to: '35test42@gmail.com',
