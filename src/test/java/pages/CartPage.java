@@ -82,7 +82,7 @@ public class CartPage extends BasePage {
         indirimKodTextBox.sendKeys(faker.code().imei());
         uygulaButton.click();
         wait.until(ExpectedConditions.elementToBeClickable(errorMessage));
-        getScreenshot("warningMessage");
+        getScreenshot("Warning Message (1)  ");
         System.out.println("errorMessage = " + errorMessage.getText());
 
     }
@@ -119,4 +119,5 @@ public class CartPage extends BasePage {
         FileUtils.copyFile(source, finalDestination);
         return target;
     }
+
 }

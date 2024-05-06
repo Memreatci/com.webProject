@@ -8,12 +8,17 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import utilities.Driver;
 
+import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
+
+import static pages.CartPage.getScreenshot;
 
 public class HomePage extends BasePage {
 
@@ -209,7 +214,9 @@ public class HomePage extends BasePage {
                 try {
                     Driver.getDriver().switchTo().frame(iframeElement);
                     String frameText = getHataMesajText().getText();
+                    Thread.sleep(500);
                     System.out.println("Error Message = " + frameText);
+                    getScreenshot("Warning Message (3)  ");
                     getKapatButton().click();
                     Driver.getDriver().switchTo().parentFrame();
                     Thread.sleep(500);
@@ -230,4 +237,5 @@ public class HomePage extends BasePage {
             Assert.assertTrue(prodPriceList.get(i - 1) <= prodPriceList.get(i));
         }
     }
+
 }

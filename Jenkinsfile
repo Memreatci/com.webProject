@@ -40,11 +40,19 @@ pipeline {
                      def emailBody = isBuildSuccess ? "Hello,\n\nCucumber tests successful completed. Report link: \n${firstHtmlFile.path}\n\nBest Regards,\nJenkins" :
                                                       "Hello,\n\nCucumber tests Failed. Report link: \n${firstHtmlFile.path}\n\nBest Regards,\nJenkins"
 
+
+                     def screenshotFiles = findFiles(glob: '**/target/Screenshots/*.png')
+
+
                      mail to      :'35test42@gmail.com',
                           subject : emailSubject,
                           body    : emailBody
+                          attachments: screenshotFiles.collect { file -> file.path }
                 }
             }
         }
     }
+    triggers {
+            cron('0 8 * * *')
+        }
 }
