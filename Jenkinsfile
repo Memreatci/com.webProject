@@ -24,7 +24,7 @@ pipeline {
             steps {
                 script {
 
-                    def htmlFiles = findFiles(glob: '/target/cucumber-html-reports/cucumber-html-reports/*.html')
+                    def htmlFiles = findFiles(glob: '/target/cucumber-html-reports/*.html')
 
                     if (htmlFiles.length == 0) {
                         error('Hata: Belirtilen konumda HTML dosyası bulunamadı.')
